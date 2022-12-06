@@ -18,20 +18,24 @@ class _HomePageState extends State<HomePage> {
   AssetImage five = AssetImage("images/five.png");
   AssetImage six = AssetImage("images/six.png");
 
-  late AssetImage diceimage;
+  late AssetImage diceImage;
+  late AssetImage diceImage1;
 
   @override
   void initState(){
     super.initState();
     setState(() {
-      diceimage = one;
+      diceImage = one;
+      diceImage1 = one;
     });
   }
 
   void rollDice(){
     int randomvalue = (1 + Random().nextInt(6));
+    int randomvalue1 = (1 + Random().nextInt(6));
 
     late AssetImage newImage;
+    late AssetImage newImage1;
 
     switch (randomvalue) {
       case 1: 
@@ -53,8 +57,30 @@ class _HomePageState extends State<HomePage> {
         newImage = six;
         break;
     }
+
+    switch (randomvalue1) {
+      case 1: 
+        newImage1 = one;
+        break;
+      case 2: 
+        newImage1 = two;
+        break;
+      case 3: 
+        newImage = three;
+        break;
+      case 4: 
+        newImage1 = four;
+        break;
+      case 5: 
+        newImage1 = five;
+        break;
+      case 6: 
+        newImage1 = six;
+        break;
+    }
     setState(() {
-      diceimage =  newImage;
+      diceImage =  newImage;
+      diceImage1 = newImage1;
     });
   }
 
@@ -69,7 +95,12 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image(
-                image: diceimage,
+                image: diceImage,
+                height: 200.0,
+                width: 200.0,
+              ),
+              Image(
+                image: diceImage1,
                 height: 200.0,
                 width: 200.0,
               ),
@@ -80,6 +111,7 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
                   child: Text("Roll the dice"),
                   onPressed: rollDice,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                 ),
               ),
             ],
