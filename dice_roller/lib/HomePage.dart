@@ -90,6 +90,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: Text("Dice Roller")
       ),
       body: Container(
+        margin: EdgeInsets.fromLTRB(100.0, 50.0, 100.0, 50.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
